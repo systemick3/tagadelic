@@ -41,7 +41,7 @@ function tagadelic_taxonomy_cloud() {
     $cloud->add_tag($tag);
   }
 
-  return theme("tagadelic_taxonomy_cloud", array("tags" => $cloud->get_tags()));
+  return theme("tagadelic_taxonomy_cloud", array("tags" => $cloud->get_tags(),"more_link" => l('More tags', 'tagadelic_taxonomy')));
 }
 
 function tagadelic_taxonomy_theme($existing, $type, $theme, $path) {
