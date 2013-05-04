@@ -29,12 +29,12 @@ function tagadelic_taxonomy_menu() {
 /**
  * Constructs a simple page.
  */
-function tagadelic_taxonomy_cloud($show_more_link = FALSE) {
+function tagadelic_taxonomy_cloud($max_amount = 60, $show_more_link = FALSE) {
   drupal_add_css(drupal_get_path('module', 'tagadelic') . '/tagadelic.css');
 
   $cloud = new TagadelicCloud("tagadalic_taxonomy");
 
-  foreach (tagadelic_taxonomy_get_tags(60) as $term) {
+  foreach (tagadelic_taxonomy_get_tags($max_amount) as $term) {
     $tag = new TagadelicTag($term->tid, $term->name, $term->count);
     $tag->set_link("taxonomy/term/{$term->tid}");
 
@@ -152,7 +152,7 @@ function tagadelic_taxonomy_block_view($delta = '') {
       $block['subject'] = t('Tag cloud');
       $block['content'] = array(
         '#type' => 'markup',
-        '#markup' => tagadelic_taxonomy_cloud(TRUE),
+        '#markup' => tagadelic_taxonomy_cloud(12, TRUE),
       );
       break;
   }
