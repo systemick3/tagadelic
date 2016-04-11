@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * @file
  * This module provides a taxonomy tag cloud.
