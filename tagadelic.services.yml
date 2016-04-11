@@ -1,0 +1,4 @@
+services:
+  tagadelic.tagadelic_taxonomy:
+    class: Drupal\tagadelic\TagadelicCloudTaxonomy
+    arguments: ["@config.factory"]
