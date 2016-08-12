@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\tagadelic\Plugin\Block\TagadelicBlock.
- */
-
 namespace Drupal\tagadelic\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;

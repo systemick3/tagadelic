@@ -1,11 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\tagadelic\TagadelicCloud.
- *
- */
-
 namespace Drupal\tagadelic;
 
 use Drupal\Component\Utility\SafeMarkup;

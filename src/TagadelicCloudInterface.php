@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\tagadelic\TagadelicCloudInterface.
- */
-
 namespace Drupal\tagadelic;
 
 use Drupal\tagadelic\TagadelicTag;

@@ -1,11 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\tagadelic\TagadelicCloudTaxonomy.
- *
- */
-
 namespace Drupal\tagadelic;
 
 use Drupal\Core\Config\ConfigFactory;

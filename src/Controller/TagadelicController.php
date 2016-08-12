@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains \Drupal\tagadelic\Controller\TagadelicController.
- */
 
 namespace Drupal\tagadelic\Controller;
 

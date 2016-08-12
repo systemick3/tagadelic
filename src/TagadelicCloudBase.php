@@ -1,11 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains Drupal\tagadelic\TagadelicCloudBase.
- *
- */
-
 namespace Drupal\tagadelic;
 
 use Drupal\Core\Config\ConfigFactory;

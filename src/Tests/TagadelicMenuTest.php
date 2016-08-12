@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Definition of Drupal\tagadelic\tests\TagadelicMenuTest.
- */
-
 namespace Drupal\tagadelic\Tests;
 
 use Drupal\simpletest\WebTestBase;
