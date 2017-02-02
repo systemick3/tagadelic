@@ -48,9 +48,8 @@ class TagadelicCloudTaxonomy extends TagadelicCloudBase {
     // If no vocabularies have been configured use them all
     if (count($vocabularies)) {
       foreach($vocabularies as $key => $value) {
-        if ($key != $value) { 
+        if ($key !== $value) { 
           $query->condition('t.vid', $key, '<>');
-          break;
         }
       }
     }
