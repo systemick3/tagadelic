@@ -32,7 +32,7 @@ class TagadelicCloudTaxonomy extends TagadelicCloudBase {
   /**
    * {@inheritdoc}
    */
-  public function createTags() {
+  public function createTags(Array $options = array()) {
     $config = \Drupal::config('tagadelic.settings');
     $vocabularies = $config->get('tagadelic_vocabularies');
     $max_amount = 50;

@@ -35,18 +35,20 @@ abstract class TagadelicCloudBase implements TagadelicCloudInterface {
   }
 
   /**
+   * @param $options. An array of properties that may be needed to create the tags array.
+   *
    * Poulate the member array of TagadelicTag objects
    *
    * @return NULL.
    */
-  abstract public function createTags();
+  abstract public function createTags(Array $options = array());
 
   /**
    * {@inheritdoc}
    */
-  public function getTags() {
+  public function getTags(Array $options = array()) {
     $this->resetTags();
-    $this->createTags();
+    $this->createTags($options);
     $this->recalculate();
     return $this->tags;
   }
