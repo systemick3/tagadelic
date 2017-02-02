@@ -9,7 +9,7 @@ dependencies:
     - tagadelic
     - user
 _core:
-  default_config_hash: JvxG5VElWlx27TBuyn4UzhPqWQO_0AakL-RNYMRvli0
+  default_config_hash: A_G7A_qMdyoPAXPXnUy2mwCie6PEpV4rjpYxwxFjdaI
 id: tagadelic_content
 label: 'Tagadelic Content'
 module: views
@@ -259,7 +259,7 @@ display:
           plugin_id: field
       filters:
         status:
-          value: true
+          value: '1'
           table: node_field_data
           field: status
           plugin_id: boolean
@@ -321,7 +321,7 @@ display:
           expose:
             label: ''
           plugin_id: standard
-      title: 'Tagadelic Most Commented Content'
+      title: 'Tagadelic: Most Commented Content'
       header: {  }
       footer: {  }
       empty: {  }
@@ -338,23 +338,13 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
-    position: 1
+  block_1:
+    display_plugin: block
+    id: block_1
+    display_title: Block
+    position: 2
     display_options:
       display_extenders: {  }
-      path: tagadelic-content
-      menu:
-        type: normal
-        title: 'Tagadelic: Most Commented Content'
-        description: ''
-        expanded: false
-        parent: ''
-        weight: 0
-        context: '0'
-        menu_name: main
     cache_metadata:
       max-age: -1
       contexts:

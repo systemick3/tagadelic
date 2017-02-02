@@ -9,6 +9,8 @@ dependencies:
     - tagadelic
     - taxonomy
     - user
+_core:
+  default_config_hash: SKgvULBkGqHVjSuEpKb5Vitj0awd_wvuoDgPAMouMYU
 id: tagadelic_terms
 label: 'Tagadelic Terms'
 module: views
@@ -241,23 +243,13 @@ display:
         - url.query_args
         - user.permissions
       tags: {  }
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
-    position: 1
+  block_1:
+    display_plugin: block
+    id: block_1
+    display_title: Block
+    position: 2
     display_options:
       display_extenders: {  }
-      path: tagadelic-terms
-      menu:
-        type: normal
-        title: 'Tagadelic: Tag Cloud'
-        description: ''
-        expanded: false
-        parent: ''
-        weight: 0
-        context: '0'
-        menu_name: main
     cache_metadata:
       max-age: -1
       contexts:
