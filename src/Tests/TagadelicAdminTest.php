@@ -27,7 +27,7 @@ class TagadelicAdminTest extends WebTestBase {
    * @var \Drupal\user\UserInterface
    */
   protected $vocabularies;
-  
+
   /**
    * Modules to enable.
    *
@@ -64,8 +64,8 @@ class TagadelicAdminTest extends WebTestBase {
     $this->drupalLogin($this->adminUser);
 
     $this->vocabularies = array();
-    
-    $vocabulary1 = entity_create('taxonomy_vocabulary', array(
+
+    $vocabulary1 = Vocabulary::create(array(
       'name' => $this->randomMachineName(),
       'description' => $this->randomMachineName(),
       'vid' => Unicode::strtolower($this->randomMachineName()),
@@ -74,8 +74,8 @@ class TagadelicAdminTest extends WebTestBase {
     ));
     $vocabulary1->save();
     $this->vocabularies[] = $vocabulary1;
-    
-    $vocabulary2 = entity_create('taxonomy_vocabulary', array(
+
+    $vocabulary2 = Vocabulary::create(array(
       'name' => $this->randomMachineName(),
       'description' => $this->randomMachineName(),
       'vid' => Unicode::strtolower($this->randomMachineName()),

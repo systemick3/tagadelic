@@ -8,6 +8,8 @@ use Drupal\Core\Language\LanguageInterface;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\Entity\Vocabulary;
 
 /**
  * Tests for tagadelic service.
@@ -35,14 +37,14 @@ class TagadelicServiceTest extends WebTestBase {
    */
   function setUp() {
     parent::setUp();
-    
+
     // Create an article content type
     $this->drupalCreateContentType(array(
       'type' => 'article',
     ));
 
     // Create the vocabulary for the tag field.
-    $this->vocabulary = entity_create('taxonomy_vocabulary', array(
+    $this->vocabulary = Vocabulary::create(array(
       'name' => 'Views testing tags',
       'vid' => 'views_testing_tags',
     ));
@@ -55,7 +57,7 @@ class TagadelicServiceTest extends WebTestBase {
       ),
       'auto_create' => TRUE,
     );
-    
+
     // Create the tag field
     if (!FieldStorageConfig::loadByName('node', $field_name)) {
       FieldStorageConfig::create(array(
@@ -117,13 +119,13 @@ class TagadelicServiceTest extends WebTestBase {
     $this->drupalLogin($user);
 
     // Create 4 taxonomy terms and and 4 nodes
-    // Add various combinations of ther terms' ids to the 
+    // Add various combinations of ther terms' ids to the
     // entity reference field on the nodes
     $term1 = $this->createTerm($this->vocabulary);
     $term2 = $this->createTerm($this->vocabulary);
     $term3 = $this->createTerm($this->vocabulary);
     $term4 = $this->createTerm($this->vocabulary);
-    
+
     $node = array();
     $node['type'] = 'article';
     $node['field_views_testing_tags'][]['target_id'] = $term1->id();
@@ -137,13 +139,13 @@ class TagadelicServiceTest extends WebTestBase {
     $node['field_views_testing_tags'][]['target_id'] = $term2->id();
     $node['field_views_testing_tags'][]['target_id'] = $term3->id();
     $node2 = $this->drupalCreateNode($node);
-    
+
     $node['field_views_testing_tags'][] = array();
     $node['field_views_testing_tags'][]['target_id'] = $term1->id();
     $node['field_views_testing_tags'][]['target_id'] = $term2->id();
     $node['field_views_testing_tags'][]['target_id'] = $term3->id();
     $node3 = $this->drupalCreateNode($node);
-    
+
     $node['field_views_testing_tags'][] = array();
     $node['field_views_testing_tags'][]['target_id'] = $term1->id();
     $node['field_views_testing_tags'][]['target_id'] = $term2->id();
@@ -158,7 +160,7 @@ class TagadelicServiceTest extends WebTestBase {
     $tag = array_pop($tags);
     $this->assertEqual('Drupal\tagadelic\TagadelicTag', get_class($tag));
   }
-  
+
   /**
    * Creates and returns a taxonomy term.
    *
@@ -171,7 +173,7 @@ class TagadelicServiceTest extends WebTestBase {
   function createTerm($vocabulary) {
     $filter_formats = filter_formats();
     $format = array_pop($filter_formats);
-    $term = entity_create('taxonomy_term', array(
+    $term = Term::create(array(
       'name' => $this->randomMachineName(),
       'description' => array(
         'value' => $this->randomMachineName(),
